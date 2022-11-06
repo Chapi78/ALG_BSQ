@@ -58,20 +58,46 @@ class bsq {
     }
 
     public function square($y, $x) {
-        $squareSize = 1;
-        $limiteX = $this->proportion-$x;
-        $limiteY = $this->proportion-$y;
+        $squareSize = 2;
+        $border = $this->proportion-1;
+        $sizeX = $this->proportion-$x;
+        $sizeY = $this->proportion-$y;
+        echo $this->proportion. "\n"; //comms
         // echo "\nsquareSize: " . $squareSize . "\n"; //comms
         // echo "cord: " . $y . " " . $x . "\n"; //comms
-        if($limiteX > 1 || $limiteY > 1) {
-            $limiteX--;
-            $limiteY--;
-            echo "\nxlimite: " .$limiteX . "\nylimite: " . $limiteY . "\n"; //comms
-            for($colone = 0; $colone < $limiteX; $colone++) {
-                echo "colone: " .$colone."\n";
+        if($x == $border || $y == $border) {
+            echo "\njeff\n";
+            exit; //test
+            return;
+        }
+        if($sizeX > 1 || $sizeY > 1) {
+            $sizeX = $sizeX-1;
+            $sizeY = $sizeY-1;
+            // $limitx = 
+            echo "\nxsize: " .$sizeX . "\nysize: " . $sizeY . "\n"; //comms
+            for($colone = 0; $colone < $sizeX; $colone++) {
+                echo "x: " .$colone+($x+1)."\n";
+                $checkx = $colone+($x+1);
+                for($cx = $y; $cx < $sizeX; $cx++) {
+                    if($this->map[$cx][$checkx] == ".") {
+                        // echo $this->map[$cx][$checkx] . "\n";
+                        echo $checkx."\n";
+                        for($iteX = 0; $iteX < $sizeX; $iteX++) {
+                            echo $iteX."\n";
+                        }
+                    }
+                }
             }
-            for($row = 0; $row < $limiteY; $row++) {
-                echo "row: ".$row."\n";
+            $rowSize = $squareSize-1;
+            for($row = 0; $row < $sizeY; $row++) {
+                echo "y: " . $row+($y+1)."\n";
+                $checky = $row+($y+1);
+                for($cy = $x; $cy < $sizeY; $cy++) {
+                    if($this->map[$checky][$cy] == ".") {
+                        // echo $this->map[$checky][$cy] . "\n";
+                        echo $row."\n";
+                    }
+                }
             }
             exit;
         }
