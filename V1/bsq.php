@@ -25,7 +25,7 @@ class bsq {
                 $split_line = str_split($line); // split each character
                 array_pop($split_line); // get rid of return to line
                 // var_dump($split_line); //comms
-                array_push($this->map, []);
+                array_push($this->map, [$split_line]);
                 for($i = 0; $i < $this->proportion; $i++) {
                     $this->map[$r];
                     array_push($this->map[$r], $split_line[$i]);
@@ -41,7 +41,8 @@ class bsq {
             echo "error"; //comms
         }
         $this->analyse();
-        // var_dump($this->map); //comms
+        echo "var_dump map\n";
+        var_dump($this->map); //comms
     }
 
     public function analyse() {
