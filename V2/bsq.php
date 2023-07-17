@@ -52,7 +52,6 @@ Class Bsq {
         $this->find_max($matrix, $max);
         // $this->print_arr_debug($matrix); //debug
         $this->print_arr($this->arr_input);
-        // $this
     }
 
     public function print_arr_debug($matrix) {
